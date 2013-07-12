@@ -9,14 +9,14 @@
  * $HEADER$
  */
 
-#include "ompi/mpit/mpit-internal.h"
+#include "ompi/mpi/tool/mpit-internal.h"
 
 #if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
 #pragma weak MPI_T_pvar_handle_free = PMPI_T_pvar_handle_free
 #endif
 
 #if OMPI_PROFILING_DEFINES
-#include "ompi/mpi/c/profile/defines.h"
+#include "ompi/mpi/tool/profile/defines.h"
 #endif
 
 static const char FUNC_NAME[] = "MPI_T_pvar_handle_free";

@@ -10,7 +10,7 @@
  */
 
 
-#include "ompi/mpit/mpit-internal.h"
+#include "ompi/mpi/tool/mpit-internal.h"
 
 #include "opal/include/opal/sys/atomic.h"
 #include "opal/runtime/opal.h"
@@ -20,7 +20,7 @@
 #endif
 
 #if OMPI_PROFILING_DEFINES
-#include "ompi/mpi/c/profile/defines.h"
+#include "ompi/mpi/tool/profile/defines.h"
 #endif
 
 static const char FUNC_NAME[] = "MPI_T_finalize";

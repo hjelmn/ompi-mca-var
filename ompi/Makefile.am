@@ -111,6 +111,7 @@ DIST_SUBDIRS = \
         debuggers \
         etc \
         mpi/c \
+	mpi/tool \
         mpi/cxx \
         mpi/fortran/base \
         mpi/fortran/mpif-h \

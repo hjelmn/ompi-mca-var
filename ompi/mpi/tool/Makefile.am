@@ -1,4 +1,3 @@
-# -*- makefile -*-
 #
 # Copyright (c) 2004-2006 The University of Tennessee and The University
 #                         of Tennessee Research Foundation.  All rights
@@ -32,7 +31,7 @@ libmpi_mpit_la_SOURCES = init_thread.c finalize.c cvar_get_num.c \
                      pvar_handle_free.c pvar_read.c pvar_readreset.c \
                      pvar_reset.c pvar_session_create.c pvar_session_free.c \
                      pvar_start.c pvar_stop.c pvar_write.c \
-                     enum_get_info.c enum_get_item.c
+                     enum_get_info.c enum_get_item.c mpit_common.c
 
 # Conditionally install the header files
 

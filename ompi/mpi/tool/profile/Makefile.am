@@ -38,12 +38,12 @@ AM_CPPFLAGS = -DOMPI_PROFILING_DEFINES=1
 
 noinst_LTLIBRARIES =
 if BUILD_PMPI_BINDINGS_LAYER
-noinst_LTLIBRARIES += libmpi_c_pmpit.la
+noinst_LTLIBRARIES += libmpi_pmpit.la
 endif
 
 headers = defines.h
 
-nodist_libmpi_c_pmpit_la_SOURCES = \
+nodist_libmpi_pmpit_la_SOURCES = \
 	pcatagory_changed.c \
 	pcatagory_get_catagories.c \
 	pcatagory_get_cvars.c \
@@ -76,7 +76,7 @@ nodist_libmpi_c_pmpit_la_SOURCES = \
 #
 # Sym link in the sources from the real MPI directory
 #
-$(nodist_libmpi_c_pmpit_la_SOURCES):
+$(nodist_libmpi_pmpit_la_SOURCES):
 	if test ! -r $@ ; then \
 		pname=`echo $@ | cut -b '2-'` ; \
 		$(LN_S) $(top_srcdir)/ompi/mpi/tool/$$pname $@ ; \
@@ -91,7 +91,7 @@ endif
 
 # These files were created by targets above
 
-MAINTAINERCLEANFILES = $(nodist_libmpi_c_pmpit_la_SOURCES)
+MAINTAINERCLEANFILES = $(nodist_libmpi_pmpit_la_SOURCES)
 
 # Don't want these targets in here
 
