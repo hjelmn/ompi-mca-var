@@ -11,6 +11,14 @@
 
 #include "ompi/mpit/mpit-internal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_cvar_read = PMPI_T_cvar_read
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_cvar_read";
 
 int MPI_T_cvar_read (MPI_T_cvar_handle handle, void *buf)

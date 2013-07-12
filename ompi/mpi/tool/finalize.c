@@ -15,6 +15,14 @@
 #include "opal/include/opal/sys/atomic.h"
 #include "opal/runtime/opal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_finalize = PMPI_T_finalize
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_finalize";
 
 int MPI_T_finalize (void)

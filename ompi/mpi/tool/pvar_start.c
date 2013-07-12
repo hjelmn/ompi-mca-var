@@ -11,6 +11,14 @@
 
 #include "ompi/mpit/mpit-internal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_pvar_start = PMPI_T_pvar_start
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_pvar_start";
 
 static int pvar_handle_start (mca_base_pvar_handle_t *handle)

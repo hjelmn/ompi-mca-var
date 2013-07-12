@@ -11,6 +11,14 @@
 
 #include "ompi/mpit/mpit-internal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_cvar_handle_alloc = PMPI_T_cvar_handle_alloc
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_cvar_handle_alloc";
 
 int MPI_T_cvar_handle_alloc (int cvar_index, void *obj_handle,

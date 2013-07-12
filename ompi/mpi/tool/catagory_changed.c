@@ -11,14 +11,25 @@
 
 #include "ompi/mpit/mpit-internal.h"
 
-int MPI_T_cvar_handle_free (MPI_T_cvar_handle *handle)
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_category_changed = PMPI_T_category_changed
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
+static const char FUNC_NAME[] = "MPI_T_category_changed";
+
+int MPI_T_category_changed(int *stamp)
 {
     if (!mpit_is_initialized ()) {
         return MPI_T_ERR_NOT_INITIALIZED;
     }
 
-    free (*handle);
-    *handle = NULL;
+    mpit_lock ();
+    *stamp = mca_base_var_group_get_stamp ();
+    mpit_unlock ();
 
     return MPI_SUCCESS;
 }

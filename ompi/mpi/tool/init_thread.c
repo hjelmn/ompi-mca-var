@@ -18,6 +18,14 @@
 #include "opal/include/opal/sys/atomic.h"
 #include "opal/runtime/opal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_init_thread = PMPI_T_init_thread
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_init_thread";
 
 opal_mutex_t mpit_big_lock;

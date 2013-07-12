@@ -11,6 +11,14 @@
 
 #include "mpit-internal.h"
 
+#if OPAL_HAVE_WEAK_SYMBOLS && OMPI_PROFILING_DEFINES
+#pragma weak MPI_T_pvar_get_num = PMPI_T_pvar_get_num
+#endif
+
+#if OMPI_PROFILING_DEFINES
+#include "ompi/mpi/c/profile/defines.h"
+#endif
+
 static const char FUNC_NAME[] = "MPI_T_pvar_get_num";
 
 int MPI_T_pvar_get_num(int *num_pvar)
